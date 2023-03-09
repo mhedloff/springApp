@@ -13,8 +13,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: make mvnw runnable
-      run: chmod u+x ./mvnw
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: docker build . --file Dockerfile
