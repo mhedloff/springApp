@@ -3,12 +3,12 @@ package com.example.springapp.data_object;
 import com.example.springapp.entity.RecipeElement;
 
 public class RecipeElementDO {
-    private Double quantity;
-    private String unit;
-    private String name;
-    private boolean vegan;
-    private boolean vegetarian;
-    private boolean glutenFree;
+    private final Double quantity;
+    private final String unit;
+    private final String name;
+    private final boolean vegan;
+    private final boolean vegetarian;
+    private final boolean glutenFree;
 
     public RecipeElementDO(RecipeElement recipeElement) {
         this.quantity = recipeElement.getQuantity();
@@ -37,47 +37,23 @@ public class RecipeElementDO {
         return quantity;
     }
 
-    public void setQuantity(Double quantity) {
-        this.quantity = quantity;
-    }
-
     public String getUnit() {
         return unit;
-    }
-
-    public void setUnit(String unit) {
-        this.unit = unit;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public boolean isVegan() {
         return vegan;
-    }
-
-    public void setVegan(boolean vegan) {
-        this.vegan = vegan;
     }
 
     public boolean isVegetarian() {
         return vegetarian;
     }
 
-    public void setVegetarian(boolean vegetarian) {
-        this.vegetarian = vegetarian;
-    }
-
     public boolean isGlutenFree() {
         return glutenFree;
-    }
-
-    public void setGlutenFree(boolean glutenFree) {
-        this.glutenFree = glutenFree;
     }
 }

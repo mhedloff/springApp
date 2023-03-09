@@ -1,0 +1,33 @@
+version: "3"
+services:
+  spring-app-db:
+    image: "postgres:11.5-alpine"
+    container_name: spring-app-db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: pwd1
+      POSTGRES_DB: postgres
+      POSTGRES_USERNAME: postgres
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 1s
+    networks:
+      - spring-app-network
+  spring-app:
+    image: "spring-app"
+    container_name: spring-app
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      spring-app-db:
+        condition: service_healthy
+    environment:
+      "spring.profiles.active": docker
+    networks:
+      - spring-app-network
+
+networks:
+  spring-app-network:

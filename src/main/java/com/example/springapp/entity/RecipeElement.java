@@ -7,15 +7,15 @@ public class RecipeElement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "recipe_id")
-    private Long recipeId;
+    @Column(name = "recipe_version_id")
+    private Long recipeVersionId;
     @Column(name = "ingredient_id")
     private Long ingredientId;
     private Double quantity;
     private String unit;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "recipe_id", insertable = false, updatable = false)
+    @JoinColumn(name = "recipe_version_id", insertable = false, updatable = false)
     private Recipe recipe;
 
     @OneToOne
@@ -26,12 +26,12 @@ public class RecipeElement {
         // jpa
     }
 
-    public Long getRecipeId() {
-        return recipeId;
+    public Long getRecipeVersionId() {
+        return recipeVersionId;
     }
 
-    public void setRecipeId(Long recipeId) {
-        this.recipeId = recipeId;
+    public void setRecipeVersionId(Long recipeId) {
+        this.recipeVersionId = recipeId;
     }
 
     public Long getIngredientId() {
